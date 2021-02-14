@@ -3,18 +3,14 @@ import {
   Container,
   Navbar,
   Nav,
-  NavDropdown,
+  // NavDropdown,
   Form,
   Button,
   FormControl,
   Badge,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCoffee,
-  faStore,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStore, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Link from "../../../Utility/Link/Link";
 
 //for small styles
