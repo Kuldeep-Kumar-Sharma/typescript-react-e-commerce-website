@@ -15,8 +15,7 @@ import Link from "../../../Utility/Link/Link";
 
 //for small styles
 const navBarStyles = {
-  backgroundColor: "#fff",
-  backgroundImage: "linear-gradient(0deg, #D2D2D2 0%, #97D9E1 100%)",
+  backgroundColor: "#007b5e",
   boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.3)",
 };
 
