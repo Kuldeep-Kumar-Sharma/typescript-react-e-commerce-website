@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Row, Col } from "react-bootstrap";
 import {
   faAngleDoubleRight,
   faEnvelope,
@@ -16,8 +17,8 @@ const Footer: React.FC = () => {
   return (
     <section id="footer">
       <div className="container">
-        <div className="row text-center text-xs-center text-sm-left text-md-left">
-          <div className="col-xs-12 col-sm-4 col-md-4">
+        <Row className="text-center text-xs-center text-sm-left text-md-left">
+          <Col>
             <h5>Quick links</h5>
             <ul className="list-unstyled quick-links">
               <li>
@@ -51,10 +52,12 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className="col-xs-12 col-sm-4 col-md-4">
+          </Col>
+          {/* <div className="col-xs-12 col-sm-4 col-md-4"> */}
+          <Col>
             <h5>Dummy Shops</h5>
-            <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            {/* <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5"> */}
+            <Col>
               <ul className="list-unstyled list-inline social text-center">
                 <li className="list-inline-item">
                   <a href="./">
@@ -82,11 +85,12 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </Col>
             <hr />
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+          </Col>
+          <Row>
+            {/* <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white"> */}
+            <Col>
               <p>
                 <u>
                   <a href="./">Dummy Shopper</a>
@@ -99,9 +103,9 @@ const Footer: React.FC = () => {
                   Dummytech
                 </a>
               </p>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Row>
       </div>
     </section>
   );
