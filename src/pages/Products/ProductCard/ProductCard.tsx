@@ -37,23 +37,6 @@ const ProductCard: React.FC = () => {
           <span className="product-new-label">Sale</span>
           <span className="product-discount-label">20%</span>
         </div>
-        {/* <ul className="rating">
-          <li>
-            <FontAwesomeIcon icon={faStar} />
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faStar} />
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faStar} />
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faStar} />
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faStar} />
-          </li>
-        </ul> */}
         <div className="product-content">
           <h3 className="title">
             <a href="#">Women's Blouse</a>
