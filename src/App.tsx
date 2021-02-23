@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import Layout from "./components/containers/Layout/Layout";
-import Login from "./pages/User/Login/Login";
+import Authentication from "./pages/User/Authentication/Authentication";
 import { Route, Switch } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
     <Switch>
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={Authentication} />
       <Route path="/" component={Layout} />
     </Switch>
   );
