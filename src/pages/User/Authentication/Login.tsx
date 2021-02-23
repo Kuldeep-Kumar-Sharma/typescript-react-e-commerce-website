@@ -11,7 +11,6 @@ const Login = () => {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />

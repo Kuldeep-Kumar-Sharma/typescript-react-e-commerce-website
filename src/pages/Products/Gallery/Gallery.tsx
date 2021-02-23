@@ -1,8 +1,6 @@
 import React from "react";
-import { Carousel, Container, Col, Row, Image } from "react-bootstrap";
+import { Carousel, Container, Row } from "react-bootstrap";
 import ProductCard from "../ProductCard/ProductCard";
-
-import "./Gallery.css";
 
 //sample array to recive data
 const data = [

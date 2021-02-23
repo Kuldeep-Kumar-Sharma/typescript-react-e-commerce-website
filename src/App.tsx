@@ -7,7 +7,7 @@ import { Route, Switch } from "react-router-dom";
 const App: React.FC = () => {
   return (
     <Switch>
-      <Route path="/login" component={Authentication} />
+      <Route path="/authentication" component={Authentication} />
       <Route path="/" component={Layout} />
     </Switch>
   );
