@@ -3,7 +3,6 @@ import {
   Container,
   Navbar,
   Nav,
-  // NavDropdown,
   Form,
   Button,
   FormControl,
@@ -12,22 +11,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStore, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Link from "../../../Utility/Link/Link";
-
-//for small styles
-const navBarStyles = {
-  backgroundColor: "#007b5e",
-  boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.3)",
-};
+import { Wrapper } from "./Header.style";
 
 const Header: React.FC = () => {
   return (
-    <div>
+    <Wrapper>
       <Navbar
         bg="light"
         variant="light"
         expand="lg"
         sticky="top"
-        style={navBarStyles}
+        className="background-header"
       >
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -70,7 +64,7 @@ const Header: React.FC = () => {
           <nav className="nav nav-underline"></nav>
         </Container>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

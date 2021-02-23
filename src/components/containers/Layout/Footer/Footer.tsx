@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import {
   faAngleDoubleRight,
   faEnvelope,
@@ -11,21 +11,19 @@ import {
   faInstagram,
   faTumblr,
 } from "@fortawesome/free-brands-svg-icons";
-import "./Footer.css";
+import { Wrapper } from "./Footer.style";
 
 const Footer: React.FC = () => {
   return (
-    <section id="footer">
-      <div className="container">
-        <Row className="text-center text-xs-center text-sm-left text-md-left">
+    <Wrapper>
+      <Container>
+        <Row>
           <Col>
             <h5>Quick links</h5>
             <ul className="list-unstyled quick-links">
               <li>
-                <a href="./">
-                  <FontAwesomeIcon icon={faAngleDoubleRight} />
-                  Home
-                </a>
+                <FontAwesomeIcon icon={faAngleDoubleRight} />
+                Home
               </li>
               <li>
                 <a href="./">
@@ -53,7 +51,6 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </Col>
-          {/* <div className="col-xs-12 col-sm-4 col-md-4"> */}
           <Col>
             <h5>Dummy Shops</h5>
             {/* <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5"> */}
@@ -87,27 +84,13 @@ const Footer: React.FC = () => {
               </ul>
             </Col>
             <hr />
+
+            <p>Dummy Planet Registration</p>
+            <p className="h6">© All Dummy Rights Reversed. Dummytech</p>
           </Col>
-          <Row>
-            {/* <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white"> */}
-            <Col>
-              <p>
-                <u>
-                  <a href="./">Dummy Shopper</a>
-                </u>
-                Dummy Planet Registration
-              </p>
-              <p className="h6">
-                © All Dummy Rights Reversed.
-                <a className="text-green ml-2" href="./">
-                  Dummytech
-                </a>
-              </p>
-            </Col>
-          </Row>
         </Row>
-      </div>
-    </section>
+      </Container>
+    </Wrapper>
   );
 };
 
