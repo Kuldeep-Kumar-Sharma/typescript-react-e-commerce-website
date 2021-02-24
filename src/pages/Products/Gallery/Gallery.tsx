@@ -1,6 +1,19 @@
 import React from "react";
 import { Carousel, Container, Row } from "react-bootstrap";
-import ProductCard from "../ProductCard/ProductCard";
+import Card from "../Card/Card";
+import { ProductCardProps } from "../../../Models/ProductCard";
+
+//
+const PC: ProductCardProps = {
+  name: "Blouse",
+  price: 250,
+  sale: true,
+  discount: 10,
+  productImage:
+    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg",
+  productImage2:
+    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg",
+};
 
 //sample array to recive data
 const data = [
@@ -55,9 +68,9 @@ const Gallery: React.FC = () => {
 
       <Container>
         <Row>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
+          <Card {...PC}></Card>
+          <Card {...PC}></Card>
+          <Card {...PC}></Card>
         </Row>
       </Container>
     </Container>

@@ -1,8 +1,8 @@
 export interface Product {
-  name: String;
-  price: Number;
-  discription: String;
-  sale: Boolean;
-  discount: Number;
-  productImage: String;
+  name: string;
+  price: number;
+  discription?: string;
+  sale: boolean;
+  discount: number;
+  productImage: string;
 }
