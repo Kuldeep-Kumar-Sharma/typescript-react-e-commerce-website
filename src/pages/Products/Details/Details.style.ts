@@ -4,7 +4,17 @@ export const Wrapper = styled.div`
   .product-grid {
     font-family: Raleway, sans-serif;
     text-align: center;
-    padding: 0 0 72px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  .product-details {
+    font-family: Raleway, sans-serif;
+    text-align: left;
+    padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -40,16 +50,16 @@ export const Wrapper = styled.div`
   .product-grid:hover .pic-2 {
     opacity: 1;
   }
-  .product-grid .social {
+  .product-grid .rating {
     width: 150px;
     padding: 0;
     margin: 0;
-    list-style: none;
     opacity: 0;
     transform: translateY(-50%) translateX(-50%);
     position: absolute;
     top: 60%;
     left: 50%;
+    display: block;
     z-index: 1;
     transition: all 0.3s ease 0s;
   }
@@ -157,17 +167,17 @@ export const Wrapper = styled.div`
   .product-grid:hover .title {
     color: #ef5777;
   }
-  .product-grid .price {
+  .product-details .price {
     color: #333;
     font-size: 17px;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
     letter-spacing: 0.6px;
     margin-bottom: 8px;
-    text-align: center;
     transition: all 0.3s;
   }
-  .product-grid .price span {
+
+  .product-details .discription span {
     color: #999;
     font-size: 13px;
     font-weight: 400;
