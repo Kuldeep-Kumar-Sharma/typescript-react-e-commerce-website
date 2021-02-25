@@ -15,9 +15,12 @@ const Details: React.FC<ProductCardProps> = (props) => {
     ""
   );
 
+  let rating = [];
+
   for (let i: number = 0; i < props.rating; i++) {
-    <FontAwesomeIcon className="flaticon" icon={faStar} />;
+    rating.push(<FontAwesomeIcon className="flaticon" icon={faStar} />);
   }
+
   return (
     <Container>
       <Row>
@@ -41,7 +44,7 @@ const Details: React.FC<ProductCardProps> = (props) => {
                 <div className="discription">
                   Discription: {props.discription}
                 </div>
-
+                <div className="rating">{rating}</div>
                 <Button variant="primary">Add To Cart</Button>
               </div>
             </div>
