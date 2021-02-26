@@ -16,11 +16,9 @@ const Details: React.FC<ProductCardProps> = (props) => {
   );
 
   let rating = [];
-
   for (let i: number = 0; i < props.rating; i++) {
     rating.push(<FontAwesomeIcon className="flaticon" icon={faStar} />);
   }
-
   return (
     <Container>
       <Row>

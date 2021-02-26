@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 //import Gallery from "../../../pages/Products/Gallery/Gallery";
-import Details from "../../../pages/Products/Details/Details";
+import Cart from "../../../pages/Products/Cart/Cart";
 
 import Footer from "./Footer/Footer";
 import { ProductCardProps } from "../../../Models/ProductCard";
@@ -24,7 +24,7 @@ const Layout = () => {
   return (
     <div>
       <Header />
-      <Details {...PC} />
+      <Cart {...PC} />
       <Footer />
     </div>
   );
