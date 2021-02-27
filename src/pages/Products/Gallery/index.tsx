@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row } from "react-bootstrap";
-import Card from "../Card/Card";
+import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 
 //
