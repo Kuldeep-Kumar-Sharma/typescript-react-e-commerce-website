@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-const Login: React.FC = () => {
+const Profile: React.FC = () => {
   return (
     <Form>
       <Form.Group controlId="formBasicEmail">
@@ -25,4 +25,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Profile;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
 
-const Signup = () => {
+const Signup: React.FC = () => {
   return (
     <Form>
       <Form.Group controlId="formName">

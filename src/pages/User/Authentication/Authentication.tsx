@@ -4,7 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { Wrapper } from "./Authentication.styles";
 
-const Authentication = () => {
+const Authentication: React.FC = () => {
   return (
     <Container>
       <Jumbotron fluid>
