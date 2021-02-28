@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 import Gallery from "../../../pages/Products/Gallery";
+import Search from "../../../pages/Products/Search";
 // import Cart from "../../../pages/Products/Cart/Cart";
 import Profile from "../../../pages/User/Profile";
 import Footer from "./Footer/Footer";
@@ -10,7 +11,7 @@ import { User } from "../../../Models/User";
 import { Address } from "../../../Models/Address";
 import { Product } from "../../../Models/Product";
 import { Order } from "../../../Models/Order";
-
+import { SearchProps } from "../../../Models/Search";
 // const PC: ProductCardProps = {
 //   name: "Blouse",
 //   price: 250,
@@ -63,7 +64,8 @@ const Layout: React.FC = () => {
       <Header />
       {/* <Cart {...PC} /> */}
       {/* <Profile {...user} /> */}
-      <Gallery />
+      {/* <Gallery /> */}
+      <Search />
       <Footer />
     </div>
   );
