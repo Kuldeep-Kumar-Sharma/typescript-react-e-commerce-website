@@ -20,6 +20,7 @@ const PC: ProductCardProps = {
 
 const Search: React.FC<SearchProps> = (props) => {
   const filter = [];
+  const productcards = [];
   for (let i: number = 0; i < props.filters.length; i++) {
     filter.push(
       <Nav.Item>
@@ -27,6 +28,18 @@ const Search: React.FC<SearchProps> = (props) => {
           {props.filters[i].name}
         </Nav.Link>
       </Nav.Item>
+    );
+    //product card was always with this filter card
+    productcards.push(
+      <Tab.Pane eventKey={props.filters[i].eventKey}>
+        <Container>
+          <Row>
+            {props.productCards.map((product) => (
+              <Card {...product} />
+            ))}
+          </Row>
+        </Container>
+      </Tab.Pane>
     );
   }
 
@@ -40,17 +53,7 @@ const Search: React.FC<SearchProps> = (props) => {
             </Nav>
           </Col>
           <Col sm={9}>
-            <Tab.Content>
-              <Tab.Pane eventKey="first">
-                <Container>
-                  <Row>
-                    {props.productCards.map((product) => (
-                      <Card {...product} />
-                    ))}
-                  </Row>
-                </Container>
-              </Tab.Pane>
-            </Tab.Content>
+            <Tab.Content>{productcards}</Tab.Content>
           </Col>
         </Row>
       </Tab.Container>
