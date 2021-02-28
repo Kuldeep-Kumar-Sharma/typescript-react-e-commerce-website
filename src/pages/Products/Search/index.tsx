@@ -44,13 +44,12 @@ const Search: React.FC<SearchProps> = (props) => {
               <Tab.Pane eventKey="first">
                 <Container>
                   <Row>
-                    <Card {...PC}></Card>
-                    <Card {...PC}></Card>
-                    <Card {...PC}></Card>
+                    {props.productCards.map((product) => (
+                      <Card {...product} />
+                    ))}
                   </Row>
-                </Container>{" "}
+                </Container>
               </Tab.Pane>
-              <Tab.Pane eventKey="second">{/* <Sonnet /> */}</Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>

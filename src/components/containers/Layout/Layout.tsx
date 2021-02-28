@@ -11,21 +11,31 @@ import { User } from "../../../Models/User";
 import { Address } from "../../../Models/Address";
 import { Product } from "../../../Models/Product";
 import { Order } from "../../../Models/Order";
-import { SearchProps } from "../../../Models/Search";
-// const PC: ProductCardProps = {
-//   name: "Blouse",
-//   price: 250,
-//   sale: true,
-//   discount: 10,
-//   rating: 5,
-//   discription:
-//     "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-//   productImage:
-//     "http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg",
-//   productImage2:
-//     "http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg",
-// };
+import { SearchProps, filterItem } from "../../../Models/Search";
 
+const PC: ProductCardProps = {
+  name: "Blouse",
+  price: 250,
+  sale: true,
+  discount: 10,
+  rating: 5,
+  discription:
+    "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+  productImage:
+    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg",
+  productImage2:
+    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg",
+};
+
+const FI: filterItem = {
+  eventKey: "price",
+  name: "NAME",
+};
+
+const SP: SearchProps = {
+  productCards: [PC],
+  filters: [FI],
+};
 const custAddress: Address = {
   hno: "38",
   address: "dummy road",
@@ -33,7 +43,7 @@ const custAddress: Address = {
   district: "dummy city",
   pin: 142365,
 };
-const PC: Product = {
+const PCs: Product = {
   name: "Blouse",
   price: 250,
   sale: true,
@@ -65,7 +75,7 @@ const Layout: React.FC = () => {
       {/* <Cart {...PC} /> */}
       {/* <Profile {...user} /> */}
       {/* <Gallery /> */}
-      <Search />
+      <Search {...SP} />
       <Footer />
     </div>
   );
