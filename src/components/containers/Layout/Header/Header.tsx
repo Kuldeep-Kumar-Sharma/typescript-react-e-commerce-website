@@ -16,13 +16,7 @@ import { Wrapper } from "./Header.style";
 const Header: React.FC = () => {
   return (
     <Wrapper>
-      <Navbar
-        bg="light"
-        variant="light"
-        expand="lg"
-        sticky="top"
-        className="background-header"
-      >
+      <Navbar expand="lg" sticky="top" className="background-header">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -30,31 +24,23 @@ const Header: React.FC = () => {
               <Navbar.Brand to="/" as={Link}>
                 <FontAwesomeIcon icon={faStore} />
               </Navbar.Brand>
-              <Nav.Link href="/">Dummy Seller</Nav.Link>
+              <Nav.Link className="head-text" href="/">
+                Dummy Seller
+              </Nav.Link>
               <Form inline>
                 <FormControl
                   type="text"
                   placeholder="Search"
-                  className="mr-lg-2"
+                  className="mr-sm-2"
                 />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-light">Search</Button>
               </Form>
-              {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="/loading">Loading</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
             </Nav>
 
-            <Button variant="link">
-              <FontAwesomeIcon icon={faShoppingCart} />
-              <Badge variant="danger" pill>
-                0
-              </Badge>
-            </Button>
+            <FontAwesomeIcon icon={faShoppingCart} />
+            <Badge variant="danger" pill>
+              0
+            </Badge>
           </Navbar.Collapse>
         </Container>
       </Navbar>
