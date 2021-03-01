@@ -33,6 +33,7 @@ const FI: filterItem = {
 };
 
 const SP: SearchProps = {
+  term: "Blouse",
   productCards: [PC],
   filters: [FI],
 };
@@ -74,8 +75,8 @@ const Layout: React.FC = () => {
       <Header />
       {/* <Cart {...PC} /> */}
       {/* <Profile {...user} /> */}
-      {/* <Gallery /> */}
-      <Search {...SP} />
+      <Gallery />
+      {/* <Search {...SP} /> */}
       <Footer />
     </div>
   );

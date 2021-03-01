@@ -45,7 +45,12 @@ const Search: React.FC<SearchProps> = (props) => {
 
   return (
     <Wrapper>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+      <h5>{props.term}</h5>
+      <hr />
+      <Tab.Container
+        id="left-tabs-example"
+        defaultActiveKey={props.filters[0].name}
+      >
         <Row>
           <Col sm={3}>
             <Nav variant="pills" className="flex-column">

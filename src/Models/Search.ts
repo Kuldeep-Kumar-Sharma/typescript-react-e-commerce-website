@@ -5,6 +5,7 @@ export interface filterItem {
   name: string;
 }
 export interface SearchProps {
+  term: string;
   productCards: Array<ProductCardProps>;
   filters: Array<filterItem>;
 }
