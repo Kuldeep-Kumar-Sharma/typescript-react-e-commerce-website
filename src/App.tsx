@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Layout from "./components/containers/Layout/Layout";
-import Authentication from "./pages/User/Authentication/Authentication";
+import Layout from "./Components/containers/Layout/Layout";
+import Authentication from "./Pages/User/Authentication/Authentication";
 import { Route, Switch } from "react-router-dom";
 
 const App: React.FC = () => {

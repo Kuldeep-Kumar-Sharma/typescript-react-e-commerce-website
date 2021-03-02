@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "./Header/Header";
-import Gallery from "../../../pages/Products/Gallery";
-import Search from "../../../pages/Products/Search";
+import Gallery from "../../../Pages/Products/Gallery";
+import Search from "../../../Pages/Products/Search";
 // import Cart from "../../../pages/Products/Cart/Cart";
-import Profile from "../../../pages/User/Profile";
+import Profile from "../../../Pages/User/Profile";
 import Footer from "./Footer/Footer";
 import { ProductCardProps } from "../../../Models/ProductCard";
 
