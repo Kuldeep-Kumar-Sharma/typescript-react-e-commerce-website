@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
 import Header from "./Header/Header";
 import Gallery from "../../../Pages/Products/Gallery";
 import Search from "../../../Pages/Products/Search";
@@ -11,9 +12,11 @@ import { User } from "../../../Models/User";
 import { Address } from "../../../Models/Address";
 import { Product } from "../../../Models/Product";
 import { Order } from "../../../Models/Order";
+import { Cart } from "../../../Models/Cart";
 import { SearchProps, filterItem } from "../../../Models/Search";
 
 const PC: ProductCardProps = {
+  productId: "SN1025GN",
   name: "Blouse",
   price: 250,
   sale: true,
@@ -45,6 +48,7 @@ const custAddress: Address = {
   pin: 142365,
 };
 const PCs: Product = {
+  productId: "SN1025GN",
   name: "Blouse",
   price: 250,
   sale: true,
@@ -70,9 +74,13 @@ const user: User = {
 };
 
 const Layout: React.FC = () => {
+  const cart: readonly string[] = useSelector(
+    (state: Cart) => state.products,
+    shallowEqual
+  );
   return (
     <div>
-      <Header />
+      <Header products={cart} />
       {/* <Cart {...PC} /> */}
       {/* <Profile {...user} /> */}
       <Gallery />

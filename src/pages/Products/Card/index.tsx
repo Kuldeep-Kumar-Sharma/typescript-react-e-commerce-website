@@ -4,8 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./Card.style";
 import { ProductCardProps } from "../../../Models/ProductCard";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
+import { addToCart } from "../../../Actions/cartActionCreators";
 
 const ProductCard: React.FC<ProductCardProps> = (props) => {
+  const dispatch: Dispatch<any> = useDispatch();
+
+  const addtocart = React.useCallback(
+    (product_id: string) => dispatch(addToCart(product_id)),
+    [dispatch]
+  );
+
   const sale = props.sale ? (
     <span>
       <span className="product-new-label">Sale</span>
@@ -37,7 +47,12 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
               ₹{props.price}
               <span>₹{props.price}</span>
             </div>
-            <Button variant="primary">Add To Cart</Button>
+            <Button
+              variant="primary"
+              onClick={() => addtocart(props.productId)}
+            >
+              Add To Cart
+            </Button>
           </div>
         </div>
       </Wrapper>

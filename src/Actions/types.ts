@@ -12,3 +12,4 @@ interface RemoverFromCartAction {
 }
 
 export type CartActionTypes = AddToCartAction | RemoverFromCartAction;
+export type DispatchType = (args: CartActionTypes) => CartActionTypes;

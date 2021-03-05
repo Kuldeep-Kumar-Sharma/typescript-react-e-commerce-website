@@ -7,7 +7,7 @@ export function addToCart(ProductId: string): CartActionTypes {
   };
 }
 
-export function removerFromCart(ProductId: string): CartActionTypes {
+export function removeromCart(ProductId: string): CartActionTypes {
   return {
     type: REMOVE_FROM_CART,
     product_id: ProductId,

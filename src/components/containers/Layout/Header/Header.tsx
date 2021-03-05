@@ -13,7 +13,11 @@ import { faStore, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Link from "../../../Utility/Link/Link";
 import { Wrapper } from "./Header.style";
 
-const Header: React.FC = () => {
+type Props = {
+  products: readonly string[];
+};
+
+const Header: React.FC<Props> = ({ products }) => {
   return (
     <Wrapper>
       <Navbar expand="lg" sticky="top" className="background-header">
@@ -39,7 +43,7 @@ const Header: React.FC = () => {
 
             <FontAwesomeIcon icon={faShoppingCart} />
             <Badge variant="danger" pill>
-              0
+              {products.length}
             </Badge>
           </Navbar.Collapse>
         </Container>

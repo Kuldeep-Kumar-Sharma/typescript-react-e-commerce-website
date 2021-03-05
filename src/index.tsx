@@ -4,13 +4,26 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { createStore, applyMiddleware, Store } from "redux";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { Cart } from "./Models/Cart";
+import { CartActionTypes, DispatchType } from "./Actions/types";
 import "bootstrap/dist/css/bootstrap.css";
+import cartReducer from "./Store/cartReducer";
+
+// for now only cart reducer
+const store: Store<Cart, CartActionTypes> & {
+  dispatch: DispatchType;
+} = createStore(cartReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

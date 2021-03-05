@@ -5,6 +5,7 @@ import { ProductCardProps } from "../../../Models/ProductCard";
 
 //
 const PC: ProductCardProps = {
+  productId: "SN1025GN",
   name: "Blouse",
   price: 250,
   rating: 5,
