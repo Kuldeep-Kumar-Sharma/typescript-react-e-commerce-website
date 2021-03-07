@@ -7,9 +7,16 @@ import {
   Button,
   FormControl,
   Badge,
+  NavDropdown,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStore, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStore,
+  faShoppingCart,
+  faUser,
+  faUserLock,
+  faUnlock,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "../../../Utility/Link/Link";
 import { Wrapper } from "./Header.style";
 
@@ -45,6 +52,15 @@ const Header: React.FC<Props> = ({ products }) => {
             <Badge variant="danger" pill>
               {products.length}
             </Badge>
+            <NavDropdown title="James" id="collasible-nav-dropdown">
+              <NavDropdown.Item>
+                <FontAwesomeIcon icon={faUser} /> Profile
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+                <FontAwesomeIcon icon={faUnlock} /> Log Out
+              </NavDropdown.Item>
+            </NavDropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -17,6 +17,7 @@ const cartReducer = (
 ): Cart => {
   switch (action.type) {
     case ADD_TO_CART:
+      console.log(state);
       return {
         ...state,
         products: state.products.concat(action.product_id),

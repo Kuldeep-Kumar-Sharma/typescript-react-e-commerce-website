@@ -78,6 +78,7 @@ const Layout: React.FC = () => {
     (state: Cart) => state.products,
     shallowEqual
   );
+
   return (
     <div>
       <Header products={cart} />
