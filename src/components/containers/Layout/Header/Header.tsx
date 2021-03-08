@@ -14,11 +14,13 @@ import {
   faStore,
   faShoppingCart,
   faUser,
-  faUserLock,
   faUnlock,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "../../../Utility/Link/Link";
 import { Wrapper } from "./Header.style";
+import { NavLink } from "react-router-dom";
+
+import Cart from "../../../../Pages/Products/Cart";
 
 type Props = {
   products: readonly string[];
@@ -33,7 +35,7 @@ const Header: React.FC<Props> = ({ products }) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Navbar.Brand to="/" as={Link}>
-                <FontAwesomeIcon icon={faStore} />
+                <FontAwesomeIcon color="white" icon={faStore} />
               </Navbar.Brand>
               <Nav.Link className="head-text" href="/">
                 Dummy Seller
@@ -47,14 +49,27 @@ const Header: React.FC<Props> = ({ products }) => {
                 <Button variant="outline-light">Search</Button>
               </Form>
             </Nav>
-
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <Badge variant="danger" pill>
-              {products.length}
-            </Badge>
-            <NavDropdown title="James" id="collasible-nav-dropdown">
-              <NavDropdown.Item>
-                <FontAwesomeIcon icon={faUser} /> Profile
+            <NavLink
+              to="/cart"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "white",
+              }}
+            >
+              <FontAwesomeIcon color="white" icon={faShoppingCart} />
+              <Badge variant="danger" pill>
+                {products.length}
+              </Badge>
+            </NavLink>
+            <NavDropdown
+              className="head-text"
+              title="James"
+              id="collasible-nav-dropdown"
+            >
+              <NavDropdown.Item to="/profile">
+                <NavLink to="/profile" activeClassName="selected">
+                  <FontAwesomeIcon icon={faUser} /> Profile
+                </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>

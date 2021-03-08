@@ -2,8 +2,7 @@ import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import Header from "./Header/Header";
 import Gallery from "../../../Pages/Products/Gallery";
-import Search from "../../../Pages/Products/Search";
-// import Cart from "../../../pages/Products/Cart/Cart";
+import CartCo from "../../../Pages/Products/Cart";
 import Profile from "../../../Pages/User/Profile";
 import Footer from "./Footer/Footer";
 import { ProductCardProps } from "../../../Models/ProductCard";
@@ -14,6 +13,7 @@ import { Product } from "../../../Models/Product";
 import { Order } from "../../../Models/Order";
 import { Cart } from "../../../Models/Cart";
 import { SearchProps, filterItem } from "../../../Models/Search";
+import { Route, Switch } from "react-router-dom";
 
 const PC: ProductCardProps = {
   productId: "SN1025GN",
@@ -82,10 +82,11 @@ const Layout: React.FC = () => {
   return (
     <div>
       <Header products={cart} />
-      {/* <Cart {...PC} /> */}
-      {/* <Profile {...user} /> */}
-      <Gallery />
-      {/* <Search {...SP} /> */}
+      <Switch>
+        <Route path="/profile" component={Profile} />
+        <Route path="/cart" component={CartCo} />
+        <Route path="/" component={Gallery} />
+      </Switch>
       <Footer />
     </div>
   );

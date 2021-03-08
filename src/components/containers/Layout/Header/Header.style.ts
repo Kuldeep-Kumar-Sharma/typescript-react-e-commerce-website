@@ -7,6 +7,6 @@ export const Wrapper = styled.div`
     boxshadow: "0 0 6px 0 rgba(0, 0, 0, 0.3)";
   }
   .head-text {
-    color: #d2dae2;
+    color: white !important;
   }
 `;
