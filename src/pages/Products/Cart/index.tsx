@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./Cart.style";
 import { ProductCardProps } from "../../../Models/ProductCard";
+import { NavLink } from "react-router-dom";
 
 const Cart: React.FC<ProductCardProps> = (props) => {
   const [quantity, setQuantity] = useState(0);

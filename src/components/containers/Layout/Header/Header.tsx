@@ -20,8 +20,6 @@ import Link from "../../../Utility/Link/Link";
 import { Wrapper } from "./Header.style";
 import { NavLink } from "react-router-dom";
 
-import Cart from "../../../../Pages/Products/Cart";
-
 type Props = {
   products: readonly string[];
 };
