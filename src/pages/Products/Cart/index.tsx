@@ -45,7 +45,6 @@ const Cart: React.FC<ProductCardProps> = (props) => {
     );
     total = total + props.price * quantity;
   }
-
   return (
     <Container>
       <Wrapper>
