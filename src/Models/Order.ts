@@ -1,7 +1,5 @@
-import { Product } from "./Product";
-
 export interface Order {
   date: string;
-  product: Product;
+  productId: string;
   time: string;
 }
