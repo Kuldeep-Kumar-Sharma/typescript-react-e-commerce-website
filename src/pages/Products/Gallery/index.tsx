@@ -1,52 +1,34 @@
 import React from "react";
 import { Carousel, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 
-//
-const PC: ProductCardProps = {
-  productId: "SN1025GN",
-  name: "Blouse",
-  price: 250,
-  rating: 5,
-  sale: true,
-  discount: 10,
-  productImage:
-    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-1.jpg",
-  productImage2:
-    "http://bestjquery.com/tutorial/product-grid/demo9/images/img-2.jpg",
-};
-
-//sample array to recive data
-const data = [
-  {
-    imageSource:
-      "https://images.unsplash.com/photo-1574758187370-1c8d72ee24d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    imageAltText: "Sample Alt text",
-    productName: "Dummy One",
-    productDiscription: "Dummy One Dummy Discription",
-    productID: 123,
-  },
-
-  {
-    imageSource:
-      "https://images.unsplash.com/photo-1587226516191-47ad119ba2fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    imageAltText: "Sample Alt text",
-    productName: "Dummy One",
-    productDiscription: "Dummy One Dummy Discription",
-    productID: 123,
-  },
-
-  {
-    imageSource:
-      "https://images.unsplash.com/photo-1562070354-930df66ead59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80",
-    imageAltText: "Sample Alt text",
-    productName: "Dummy One",
-    productDiscription: "Dummy One Dummy Discription",
-    productID: 123,
-  },
-];
 const Gallery: React.FC = () => {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "file:///D:/Learning-Development/React/e-commerce-website/src/__MOCK__/products.json"
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setData(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+
   return (
     <Container>
       <Carousel>
