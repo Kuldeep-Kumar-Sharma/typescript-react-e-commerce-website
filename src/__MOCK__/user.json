@@ -1,0 +1,22 @@
+{
+  "name": "abcCustomer",
+  "phone": "9781425369",
+  "email": "abcCustomer@gmail.com",
+  "profileImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog",
+  "address": [
+    {
+      "hno": "38",
+      "address": "dummy road",
+      "city": "dummy land",
+      "district": "dummy city",
+      "pin": 142365
+    }
+  ],
+  "orders": [
+    {
+      "date": "20/03/2021",
+      "time": "05:14:00",
+      "product": "SN1025GN"
+    }
+  ]
+}
