@@ -9,9 +9,15 @@ const Gallery: React.FC = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState<GallerySplash[]>([]);
+  const [products, setProducts] = useState<ProductCardProps[]>([]);
 
   useEffect(() => {
-    fetch("../../../__MOCK__/products.json")
+    fetch("http://localhost:3004/splashes", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => res.json())
       .then(
         (result) => {
@@ -19,9 +25,27 @@ const Gallery: React.FC = () => {
           console.log(result);
           setData(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+    // }, []);
+
+    // useEffect(() => {
+    fetch("http://localhost:3004/products", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          console.log(result);
+          setProducts(result);
+        },
         (error) => {
           setIsLoaded(true);
           setError(error);
@@ -52,9 +76,9 @@ const Gallery: React.FC = () => {
 
       <Container>
         <Row>
-          {/* <Card {...PC}></Card>
-          <Card {...PC}></Card>
-          <Card {...PC}></Card> */}
+          {products.map((product) => {
+            return <Card {...product}></Card>;
+          })}
         </Row>
       </Container>
     </Container>
