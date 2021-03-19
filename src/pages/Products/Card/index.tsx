@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
         <div className="product-grid">
           <div className="product-image">
             <img className="pic-1" alt="pic 1" src={props.productImage} />
-            <img className="pic-2" alt="pic 2" src={props.productImage} />
+            <img className="pic-2" alt="pic 2" src={props.productImage2} />
             <ul className="social">
               <li>
                 <FontAwesomeIcon className="flaticon" icon={faSearch} />

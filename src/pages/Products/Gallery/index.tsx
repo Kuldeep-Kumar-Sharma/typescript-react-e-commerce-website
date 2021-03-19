@@ -30,9 +30,6 @@ const Gallery: React.FC = () => {
           setError(error);
         }
       );
-    // }, []);
-
-    // useEffect(() => {
     fetch("http://localhost:3004/products", {
       headers: {
         "Content-Type": "application/json",
