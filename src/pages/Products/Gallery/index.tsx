@@ -17,12 +17,12 @@ const Gallery: React.FC = () => {
   const [prev, setprev] = useState(0);
   const [next, setNext] = useState(0);
 
-  const pagenatingTheProducts = (products: ProductCardProps[]) => {
-    setPageProducts(products.slice(prev, next));
-    console.log(pageProducts);
-  };
-
   useEffect(() => {
+    let pagenatingTheProducts = (products: ProductCardProps[]) => {
+      setPageProducts(products.slice(prev, next));
+      console.log(pageProducts);
+    };
+
     fetch("http://localhost:3004/splashes", {
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const Gallery: React.FC = () => {
           <FontAwesomeIcon icon={faBackward} />
         </Button>
         {pageProducts.map((product) => {
-          return <Card {...product}></Card>;
+          return <Card {...product} />;
         })}
         <Button className="paginationButton" variant="outline-primary">
           <FontAwesomeIcon icon={faForward} />
