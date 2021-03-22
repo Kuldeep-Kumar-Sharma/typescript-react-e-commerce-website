@@ -33,7 +33,6 @@ const Gallery: React.FC = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          console.log(result);
           setData(result);
         },
         (error) => {
@@ -51,10 +50,9 @@ const Gallery: React.FC = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          console.log(result);
           setProducts(result);
           pagenatingTheProducts(result);
-          setNext(4);
+          setNext(3);
         },
         (error) => {
           setIsLoaded(true);
@@ -66,7 +64,7 @@ const Gallery: React.FC = () => {
   return (
     <Wrapper>
       <Container>
-        <Carousel>
+        <Carousel className="upperMargin">
           {data.map((product) => {
             return (
               <Carousel.Item>
@@ -84,18 +82,18 @@ const Gallery: React.FC = () => {
             );
           })}
         </Carousel>
+        <Row className="cards">
+          <Button className="paginationButton" variant="outline-primary">
+            <FontAwesomeIcon icon={faBackward} />
+          </Button>
+          {pageProducts.map((product) => {
+            return <Card {...product} />;
+          })}
+          <Button className="paginationButton" variant="outline-primary">
+            <FontAwesomeIcon icon={faForward} />
+          </Button>
+        </Row>
       </Container>
-      <Row>
-        <Button className="paginationButton" variant="outline-primary">
-          <FontAwesomeIcon icon={faBackward} />
-        </Button>
-        {pageProducts.map((product) => {
-          return <Card {...product} />;
-        })}
-        <Button className="paginationButton" variant="outline-primary">
-          <FontAwesomeIcon icon={faForward} />
-        </Button>
-      </Row>
     </Wrapper>
   );
 };
