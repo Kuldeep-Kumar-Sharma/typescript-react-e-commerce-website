@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row, Button } from "react-bootstrap";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 import { GallerySplash } from "../../../Models/GallerySplash";
@@ -13,33 +13,10 @@ const Gallery: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState<GallerySplash[]>([]);
   const [products, setProducts] = useState<ProductCardProps[]>([]);
-
-  const reducer = (products: ProductCardProps[], action) => {
-    if (action.type == "next") {
-      if (products.length > action.next) {
-        return products.slice(action.prev + 1, action.next + 1);
-      }
-      return products.slice(action.prev, action.next);
-    }
-    if (action.type == "prev") {
-      if (0 <= action.prev) {
-        return products.slice(action.prev, action.next);
-      }
-      return products.slice(action.prev - 1, action.next - 1);
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, {});
-
-  const [prev, setprev] = useState(0);
-  const [next, setNext] = useState(0);
+  const [next, setNext] = useState<number>(3);
+  const [prev, setPrev] = useState<number>(0);
 
   useEffect(() => {
-    let pagenatingTheProducts = (products: ProductCardProps[]) => {
-      setPageProducts();
-      console.log(pageProducts);
-    };
-
     fetch("http://localhost:3004/splashes", {
       headers: {
         "Content-Type": "application/json",
@@ -68,15 +45,37 @@ const Gallery: React.FC = () => {
         (result) => {
           setIsLoaded(true);
           setProducts(result);
-          pagenatingTheProducts(result);
-          setNext(3);
         },
         (error) => {
           setIsLoaded(true);
           setError(error);
         }
       );
-  }, []);
+  }, [products, data]);
+
+  const [controlledProducts, setControlledProducts] = useState<
+    ProductCardProps[]
+  >([]);
+  setControlledProducts(products.slice(prev, next));
+  const Previous = () => {
+    if (0 >= prev) {
+      setControlledProducts(products.slice(prev, next));
+    } else {
+      setPrev(prev - 1);
+      setNext(next - 1);
+      setControlledProducts(products.slice(prev, next));
+    }
+  };
+
+  const Next = () => {
+    if (products.length > next) {
+      setPrev(prev + 1);
+      setNext(next + 1);
+      setControlledProducts(products.slice(prev, next));
+    } else {
+      setControlledProducts(products.slice(prev, next));
+    }
+  };
 
   return (
     <Wrapper>
@@ -84,7 +83,7 @@ const Gallery: React.FC = () => {
         <Carousel className="upperMargin">
           {data.map((product) => {
             return (
-              <Carousel.Item>
+              <Carousel.Item key={product.searchID}>
                 <img
                   className="d-block w-100"
                   height="550px"
@@ -100,13 +99,21 @@ const Gallery: React.FC = () => {
           })}
         </Carousel>
         <Row className="cards">
-          <Button className="paginationButton" variant="outline-primary">
+          <Button
+            onClick={Previous}
+            className="paginationButton"
+            variant="outline-primary"
+          >
             <FontAwesomeIcon icon={faBackward} />
           </Button>
-          {pageProducts.map((product) => {
-            return <Card {...product} />;
+          {controlledProducts.map((product) => {
+            return <Card key={product.productId} {...product} />;
           })}
-          <Button className="paginationButton" variant="outline-primary">
+          <Button
+            onClick={Next}
+            className="paginationButton"
+            variant="outline-primary"
+          >
             <FontAwesomeIcon icon={faForward} />
           </Button>
         </Row>
