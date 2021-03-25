@@ -15,6 +15,9 @@ const Gallery: React.FC = () => {
   const [products, setProducts] = useState<ProductCardProps[]>([]);
   const [next, setNext] = useState<number>(3);
   const [prev, setPrev] = useState<number>(0);
+  const [controlledProducts, setControlledProducts] = useState<
+    ProductCardProps[]
+  >([]);
 
   useEffect(() => {
     fetch("http://localhost:3004/splashes", {
@@ -34,6 +37,8 @@ const Gallery: React.FC = () => {
           setError(error);
         }
       );
+
+    console.log("Executinh effect...");
     fetch("http://localhost:3004/products", {
       headers: {
         "Content-Type": "application/json",
@@ -45,6 +50,7 @@ const Gallery: React.FC = () => {
         (result) => {
           setIsLoaded(true);
           setProducts(result);
+          //setControlledProducts(products.slice(0, 3));
         },
         (error) => {
           setIsLoaded(true);
@@ -53,14 +59,8 @@ const Gallery: React.FC = () => {
       );
   }, [products, data]);
 
-  const [controlledProducts, setControlledProducts] = useState<
-    ProductCardProps[]
-  >([]);
-  setControlledProducts(products.slice(prev, next));
   const Previous = () => {
-    if (0 >= prev) {
-      setControlledProducts(products.slice(prev, next));
-    } else {
+    if (0 < prev) {
       setPrev(prev - 1);
       setNext(next - 1);
       setControlledProducts(products.slice(prev, next));
@@ -68,19 +68,19 @@ const Gallery: React.FC = () => {
   };
 
   const Next = () => {
-    if (products.length > next) {
+    if (products.length >= next) {
       setPrev(prev + 1);
       setNext(next + 1);
+      console.log(prev + " " + next);
       setControlledProducts(products.slice(prev, next));
-    } else {
-      setControlledProducts(products.slice(prev, next));
+      console.log(controlledProducts);
     }
   };
 
   return (
     <Wrapper>
       <Container>
-        <Carousel className="upperMargin">
+        {/* <Carousel slide={false} className="upperMargin">
           {data.map((product) => {
             return (
               <Carousel.Item key={product.searchID}>
@@ -97,7 +97,7 @@ const Gallery: React.FC = () => {
               </Carousel.Item>
             );
           })}
-        </Carousel>
+        </Carousel> */}
         <Row className="cards">
           <Button
             onClick={Previous}
