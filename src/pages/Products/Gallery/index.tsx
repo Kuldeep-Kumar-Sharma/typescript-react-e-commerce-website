@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 import { GallerySplash } from "../../../Models/GallerySplash";
@@ -50,20 +50,27 @@ const Gallery: React.FC = () => {
         (result) => {
           setIsLoaded(true);
           setProducts(result);
-          //setControlledProducts(products.slice(0, 3));
+          setControlledProducts(products.slice(0, 3));
         },
         (error) => {
           setIsLoaded(true);
           setError(error);
         }
       );
-  }, [products, data]);
+  }, []);
 
   const Previous = () => {
     if (0 < prev) {
-      setPrev(prev - 1);
+      let p = prev - 1;
+      setPrev(p);
+      console.log(p);
+      setPrev(p);
       setNext(next - 1);
+      console.log("PREV");
       setControlledProducts(products.slice(prev, next));
+      console.log(products);
+
+      console.log(products.slice(prev, next));
     }
   };
 
@@ -71,16 +78,14 @@ const Gallery: React.FC = () => {
     if (products.length >= next) {
       setPrev(prev + 1);
       setNext(next + 1);
-      console.log(prev + " " + next);
       setControlledProducts(products.slice(prev, next));
-      console.log(controlledProducts);
     }
   };
 
   return (
     <Wrapper>
       <Container>
-        {/* <Carousel slide={false} className="upperMargin">
+        <Carousel slide={false} className="upperMargin">
           {data.map((product) => {
             return (
               <Carousel.Item key={product.searchID}>
@@ -97,7 +102,7 @@ const Gallery: React.FC = () => {
               </Carousel.Item>
             );
           })}
-        </Carousel> */}
+        </Carousel>
         <Row className="cards">
           <Button
             onClick={Previous}
