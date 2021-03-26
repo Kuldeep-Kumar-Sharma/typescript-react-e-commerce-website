@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 import { GallerySplash } from "../../../Models/GallerySplash";
@@ -15,6 +15,9 @@ const Gallery: React.FC = () => {
   const [products, setProducts] = useState<ProductCardProps[]>([]);
   const [next, setNext] = useState<number>(3);
   const [prev, setPrev] = useState<number>(0);
+  const [controlledProducts, setControlledProducts] = useState<
+    ProductCardProps[]
+  >([]);
 
   useEffect(() => {
     fetch("http://localhost:3004/splashes", {
@@ -34,6 +37,8 @@ const Gallery: React.FC = () => {
           setError(error);
         }
       );
+
+    console.log("Executinh effect...");
     fetch("http://localhost:3004/products", {
       headers: {
         "Content-Type": "application/json",
@@ -45,34 +50,34 @@ const Gallery: React.FC = () => {
         (result) => {
           setIsLoaded(true);
           setProducts(result);
+          setControlledProducts(products.slice(0, 3));
         },
         (error) => {
           setIsLoaded(true);
           setError(error);
         }
       );
-  }, [products, data]);
+  }, []);
 
-  const [controlledProducts, setControlledProducts] = useState<
-    ProductCardProps[]
-  >([]);
-  setControlledProducts(products.slice(prev, next));
   const Previous = () => {
-    if (0 >= prev) {
-      setControlledProducts(products.slice(prev, next));
-    } else {
-      setPrev(prev - 1);
+    if (0 < prev) {
+      let p = prev - 1;
+      setPrev(p);
+      console.log(p);
+      setPrev(p);
       setNext(next - 1);
+      console.log("PREV");
       setControlledProducts(products.slice(prev, next));
+      console.log(products);
+
+      console.log(products.slice(prev, next));
     }
   };
 
   const Next = () => {
-    if (products.length > next) {
+    if (products.length >= next) {
       setPrev(prev + 1);
       setNext(next + 1);
-      setControlledProducts(products.slice(prev, next));
-    } else {
       setControlledProducts(products.slice(prev, next));
     }
   };
@@ -80,7 +85,7 @@ const Gallery: React.FC = () => {
   return (
     <Wrapper>
       <Container>
-        <Carousel className="upperMargin">
+        <Carousel slide={false} className="upperMargin">
           {data.map((product) => {
             return (
               <Carousel.Item key={product.searchID}>
