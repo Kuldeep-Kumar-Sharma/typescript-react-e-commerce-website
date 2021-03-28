@@ -14,6 +14,7 @@ import { Cart } from "./Models/Cart";
 import { CartActionTypes, DispatchType } from "./Actions/types";
 import "bootstrap/dist/css/bootstrap.css";
 import cartReducer from "./Store/cartReducer";
+import { watchAuth, watchBurgerBuilder, watchOrder } from "./store/sagas";
 
 //for dev tools
 const composeEnhancers =
@@ -21,10 +22,27 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : null || compose;
 
-// for now only cart reducer
-const store: Store<Cart, CartActionTypes> & {
+const rootReducer = combineReducers({
+  cart: Cart,
+  order: orderReducer,
+  auth: authReducer,
+});
+// for now only old cart reducer
+/*const store: Store<Cart, CartActionTypes> & {
   dispatch: DispatchType;
 } = createStore(cartReducer, applyMiddleware(thunk));
+*/
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
+);
+
+sagaMiddleware.run(watchAuth);
+sagaMiddleware.run(watchBurgerBuilder);
+sagaMiddleware.run(watchOrder);
 
 ReactDOM.render(
   <Provider store={store}>
