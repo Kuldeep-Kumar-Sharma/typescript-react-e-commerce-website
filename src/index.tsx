@@ -16,6 +16,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import cartReducer from "./Store/cartReducer";
 import { watchAuth, watchBurgerBuilder, watchOrder } from "./store/sagas";
 
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
 //for dev tools
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -23,10 +29,9 @@ const composeEnhancers =
     : null || compose;
 
 const rootReducer = combineReducers({
-  cart: Cart,
-  order: orderReducer,
-  auth: authReducer,
+  cart: cartReducer,
 });
+
 // for now only old cart reducer
 /*const store: Store<Cart, CartActionTypes> & {
   dispatch: DispatchType;
@@ -41,8 +46,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchAuth);
-sagaMiddleware.run(watchBurgerBuilder);
-sagaMiddleware.run(watchOrder);
 
 ReactDOM.render(
   <Provider store={store}>
