@@ -4,19 +4,48 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware, Store } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
+
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
 import { Cart } from "./Models/Cart";
 import { CartActionTypes, DispatchType } from "./Actions/types";
 import "bootstrap/dist/css/bootstrap.css";
 import cartReducer from "./Store/cartReducer";
+import { watchAuth, watchBurgerBuilder, watchOrder } from "./store/sagas";
 
-// for now only cart reducer
-const store: Store<Cart, CartActionTypes> & {
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+//for dev tools
+const composeEnhancers =
+  process.env.NODE_ENV === "development"
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : null || compose;
+
+const rootReducer = combineReducers({
+  cart: cartReducer,
+});
+
+// for now only old cart reducer
+/*const store: Store<Cart, CartActionTypes> & {
   dispatch: DispatchType;
 } = createStore(cartReducer, applyMiddleware(thunk));
+*/
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
+);
+
+sagaMiddleware.run(watchAuth);
 
 ReactDOM.render(
   <Provider store={store}>
