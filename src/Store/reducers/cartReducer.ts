@@ -2,8 +2,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CartActionTypes,
-} from "../Actions/types";
-import { Cart } from "../Models/Cart";
+} from "../actions/cartTypes";
+import { Cart } from "../../Models/Cart";
 
 //use normal redux
 
