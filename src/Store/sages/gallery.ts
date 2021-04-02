@@ -7,7 +7,7 @@ declare function getCall(): Promise<User>;
 
 export function* initIngredientsSaga(action) {
   try {
-    const response = yield call(axios.get<GallerySplash[]>("/splashes"));
+    const response = yield* axios.get<GallerySplash[]>("/splashes");
     yield put(actions.setIngredients(response.data));
   } catch (error) {
     yield put(actions.fetchIngredientsFailed());
