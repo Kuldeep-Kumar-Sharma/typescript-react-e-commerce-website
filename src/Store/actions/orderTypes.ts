@@ -1,4 +1,4 @@
-import { Order } from "../Models/Order";
+import { Order } from "../../Models/Order";
 export const ADD_ORDER = "ADD_ORDER";
 export const CANCEL_ORDER = "CANCEL_ORDER";
 

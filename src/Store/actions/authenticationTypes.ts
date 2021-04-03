@@ -1,4 +1,4 @@
-import { User } from "../Models/User";
+import { User } from "../../Models/User";
 export const LOGIN = "LOGIN";
 export const SIGNUP = "SIGNUP";
 
