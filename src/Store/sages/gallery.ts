@@ -1,7 +1,7 @@
 import { put, call } from "typed-redux-saga";
 import axios from "../../axios-instance";
 import { GallerySplash } from "../../Models/GallerySplash";
-
+import { loadGallerySplashes } from "../../Store/actions/galleryActionCreators";
 function* getCall() {
   try {
     return axios.get<GallerySplash[]>("/splashes");
