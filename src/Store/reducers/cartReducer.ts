@@ -11,7 +11,7 @@ const initialState: Cart = {
   products: [],
 };
 
-const cartReducer = (
+export const cartReducer = (
   state: Cart = initialState,
   action: CartActionTypes
 ): Cart => {
@@ -34,5 +34,3 @@ const cartReducer = (
       return state;
   }
 };
-
-export default cartReducer;

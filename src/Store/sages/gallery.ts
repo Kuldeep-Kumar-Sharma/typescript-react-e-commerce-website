@@ -1,7 +1,8 @@
 import { put, call } from "typed-redux-saga";
 import axios from "../../axios-instance";
 import { GallerySplash } from "../../Models/GallerySplash";
-import { loadGallerySplashes } from "../../Store/actions/galleryActionCreators";
+import { Creators } from "../actions/galleryActionCreators";
+import {} from "../actions/galleryTypes";
 
 // get call to bring splash screens
 function* getCall() {
@@ -12,11 +13,12 @@ function* getCall() {
   }
 }
 
-export function* initGallerySplashSaga(actions:) {
+export function* initGallerySplashSaga(actions: Creators) {
   try {
     const response: any = yield* call(getCall);
-    yield put(actions.setIngredients(response.data));
+    yield put(actions.loadGallerySplashes(response));
   } catch (error) {
-    yield put(actions.fetchIngredientsFailed());
+    console.log("--[initGallerySplashSaga]--");
+    //yield put(actions.fetchIngredientsFailed());
   }
 }

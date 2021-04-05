@@ -10,7 +10,7 @@ const initialState: GallerySplashs = {
   gallerySplashes: [],
 };
 
-const galleryReducer = (
+export const galleryReducer = (
   state: GallerySplashs = initialState,
   action: GalleryActionTypes
 ): GallerySplashs => {
@@ -25,5 +25,3 @@ const galleryReducer = (
       return state;
   }
 };
-
-export default galleryReducer;

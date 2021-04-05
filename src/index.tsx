@@ -10,7 +10,7 @@ import createSagaMiddleware from "redux-saga";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
-import galleryReducer from "./Store/reducers/galleryReducer";
+import { galleryReducer, cartReducer } from "./Store/reducers";
 import { watchGallery } from "./Store/sages";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -27,7 +27,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 //     : null || compose;
 
 const rootReducer = combineReducers({
-  galleryReducer: galleryReducer,
+  gyRr: galleryReducer,
+  ctRr: cartReducer,
 });
 
 // for now only old cart reducer
