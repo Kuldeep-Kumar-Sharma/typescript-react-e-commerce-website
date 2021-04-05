@@ -1,7 +1,10 @@
-import { takeEvery, all, takeLatest } from "redux-saga/effects";
+import { takeEvery, takeLatest } from "redux-saga/effects";
+import { initGallerySplashSaga } from "./gallery";
 
-import * as actionTypes from "../../actions/actionTypes";
+import * as galleryTypes from "../actions/galleryTypes";
 
-export function* watchCart() {
-  yield all([takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga)]);
+export function* watchGallery() {
+  yield takeLatest([
+    takeEvery(galleryTypes.LOAD_SPLASH_IMAGES, initGallerySplashSaga),
+  ]);
 }

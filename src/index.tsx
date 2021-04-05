@@ -9,11 +9,9 @@ import createSagaMiddleware from "redux-saga";
 
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { Cart } from "./Models/Cart";
-import { CartActionTypes, DispatchType } from "./Store/actions/cartTypes";
 import "bootstrap/dist/css/bootstrap.css";
-import cartReducer from "./Store/reducers/cartReducer";
-//import { watchCart } from "./Store/sagas";
+import galleryReducer from "./Store/reducers/galleryReducer";
+import { watchGallery } from "./Store/sages";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 // declare global {
@@ -29,7 +27,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 //     : null || compose;
 
 const rootReducer = combineReducers({
-  cart: cartReducer,
+  galleryReducer: galleryReducer,
 });
 
 // for now only old cart reducer
@@ -45,7 +43,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk, sagaMiddleware))
 );
 
-//sagaMiddleware.run(watchCart);
+sagaMiddleware.run(watchGallery);
 
 ReactDOM.render(
   <Provider store={store}>
