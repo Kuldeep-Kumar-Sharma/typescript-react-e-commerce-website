@@ -2,8 +2,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CartActionTypes,
-} from "../Actions/types";
-import { Cart } from "../Models/Cart";
+} from "../actions/cartTypes";
+import { Cart } from "../../Models/Cart";
 
 //use normal redux
 
@@ -11,7 +11,7 @@ const initialState: Cart = {
   products: [],
 };
 
-const cartReducer = (
+export const cartReducer = (
   state: Cart = initialState,
   action: CartActionTypes
 ): Cart => {
@@ -34,5 +34,3 @@ const cartReducer = (
       return state;
   }
 };
-
-export default cartReducer;

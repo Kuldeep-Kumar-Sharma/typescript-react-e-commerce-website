@@ -6,12 +6,12 @@ import CartCo from "../../../Pages/Products/Cart";
 import Profile from "../../../Pages/User/Profile";
 import Footer from "./Footer/Footer";
 
-import { Cart } from "../../../Models/Cart";
+import { AppState } from "../../../Models/AppState";
 import { Route, Switch } from "react-router-dom";
 
 const Layout: React.FC = () => {
   const cart: readonly string[] = useSelector(
-    (state: Cart) => state.products,
+    (state: AppState) => state.ctRr.products,
     shallowEqual
   );
 

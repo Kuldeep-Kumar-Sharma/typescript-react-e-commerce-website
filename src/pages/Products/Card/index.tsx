@@ -6,7 +6,7 @@ import { Wrapper } from "./Card.style";
 import { ProductCardProps } from "../../../Models/ProductCard";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { addToCart } from "../../../Actions/cartActionCreators";
+import { addToCart } from "../../../Store/actions/cartActionCreators";
 
 const ProductCard: React.FC<ProductCardProps> = (props) => {
   const dispatch: Dispatch<any> = useDispatch();

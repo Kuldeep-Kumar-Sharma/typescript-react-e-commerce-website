@@ -3,7 +3,7 @@ import {
   SIGNUP,
   AuthenticationActionTypes,
 } from "./authenticationTypes";
-import { User } from "../Models/User";
+import { User } from "../../Models/User";
 
 export function login(
   auth_id: string,

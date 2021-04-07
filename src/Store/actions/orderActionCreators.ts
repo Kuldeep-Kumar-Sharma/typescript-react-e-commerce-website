@@ -1,5 +1,5 @@
 import { ADD_ORDER, CANCEL_ORDER, OrderActionTypes } from "./orderTypes";
-import { Order } from "../Models/Order";
+import { Order } from "../../Models/Order";
 
 export function addOrder(order: Order): OrderActionTypes {
   return {
