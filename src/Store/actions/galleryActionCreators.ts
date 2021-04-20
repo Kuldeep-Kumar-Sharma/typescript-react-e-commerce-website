@@ -15,8 +15,9 @@ export const setGallerySplashes = (
 export const loadGallerySplashes = (action: GalleryActionTypes) => {
   return (dispatch: Dispatch) => {
     axios
-      .get("https://react-my-burger.firebaseio.com/ingredients.json")
+      .get("http://localhost:3004/splashes")
       .then((response) => {
+        console.log(response);
         dispatch(setGallerySplashes(response.data));
       })
       .catch((error) => {
