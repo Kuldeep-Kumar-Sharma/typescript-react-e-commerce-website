@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Container } from "react-bootstrap";
 //, Row, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 //useEffect, useCallback } from "react";
 //import Card from "../Card";
 //simport { ProductCardProps } from "../../../Models/ProductCard";
@@ -9,8 +9,11 @@ import { GallerySplash } from "../../../Models/GallerySplash";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./Gallery.style";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { AppState } from "../../../Models/AppState";
+import { Dispatch } from "redux";
+
+import { loadGallerySplashes } from "../../../Store/actions/galleryActionCreators";
 
 const Gallery: React.FC = () => {
   // const [error, setError] = useState(null);
@@ -22,13 +25,17 @@ const Gallery: React.FC = () => {
   // const [controlledProducts, setControlledProducts] = useState<
   //   ProductCardProps[]
   // >([]);
+  const dispatch: Dispatch<any> = useDispatch();
+  dispatch(loadGallerySplashes());
+
   const abc: GallerySplash[] = useSelector(
     (state: AppState) => state.gyRr.gallerySplashes,
     shallowEqual
   );
-  useEffect(() => {
+  console.log(abc);
+  useCallback(() => {
     setData(abc);
-  }, [abc]);
+  }, []);
   //useEffect(() => {
   //   fetch("http://localhost:3004/splashes", {
   //     headers: {
