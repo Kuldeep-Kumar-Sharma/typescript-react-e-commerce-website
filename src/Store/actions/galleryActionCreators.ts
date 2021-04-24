@@ -12,7 +12,7 @@ export const setGallerySplashes = (
   };
 };
 
-export const loadGallerySplashes = (action: GalleryActionTypes) => {
+export const loadGallerySplashes = () => {
   return (dispatch: Dispatch) => {
     axios
       .get("http://localhost:3004/splashes")
