@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import Header from "./Header/Header";
 import Gallery from "../../../Pages/Products/Gallery";
 import CartCo from "../../../Pages/Products/Cart";
@@ -8,12 +8,21 @@ import Footer from "./Footer/Footer";
 
 import { AppState } from "../../../Models/AppState";
 import { Route, Switch } from "react-router-dom";
+import { Dispatch } from "redux";
+
+import {
+  loadGallerySplashes,
+  loadProductCards,
+} from "../../../Store/actions/galleryActionCreators";
 
 const Layout: React.FC = () => {
   const cart: readonly string[] = useSelector(
     (state: AppState) => state.ctRr.products,
     shallowEqual
   );
+  const dispatch: Dispatch<any> = useDispatch();
+  dispatch(loadGallerySplashes());
+  dispatch(loadProductCards());
 
   return (
     <div>
