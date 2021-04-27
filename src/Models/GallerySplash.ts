@@ -5,7 +5,3 @@ export interface GallerySplash {
   splashDiscription: string;
   searchID: string;
 }
-
-export interface GallerySplashs {
-  gallerySplashes: Array<GallerySplash>;
-}

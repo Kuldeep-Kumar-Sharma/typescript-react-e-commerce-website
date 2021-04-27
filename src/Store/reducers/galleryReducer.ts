@@ -3,33 +3,36 @@ import {
   LOAD_PRODUCT_CARDS,
   GalleryActionTypes,
 } from "../actions/galleryTypes";
-import { GallerySplash } from "../../Models/GallerySplash";
-import { ProductCardProps } from "../../Models/ProductCard";
+import { GalleryState } from "../../Models";
 
 //use normal redux
-
-interface InitialState {
-  gallerySplashes: GallerySplash[];
-  productCardProps: ProductCardProps[];
-}
-const initialState: InitialState = {
-  gallerySplashes = [],
-  productCardProps = [],
+const initialState: GalleryState = {
+  gallerySplashes: [],
+  productCardProps: [],
 };
 
 export const galleryReducer = (
-  state: InitialState = initialState,
+  state: GalleryState = initialState,
   action: GalleryActionTypes
-): GallerySplash[] | ProductCardProps[] => {
+): GalleryState => {
   switch (action.type) {
     case LOAD_SPLASH_IMAGES:
       console.log("*************************************");
       console.log(state);
-      return state.gallerySplashes.concat(action.gallerySplashes);
-    case LOAD_SPLASH_IMAGES:
+      return {
+        ...state,
+        gallerySplashes: state.gallerySplashes.concat(action.gallerySplashes),
+      };
+
+    case LOAD_PRODUCT_CARDS:
       console.log("*************************************");
       console.log(state);
-      return state.productCardProps.concat(action.productCardProps);
+      return {
+        ...state,
+        productCardProps: state.productCardProps.concat(
+          action.productCardProps
+        ),
+      };
     default:
       return state;
   }

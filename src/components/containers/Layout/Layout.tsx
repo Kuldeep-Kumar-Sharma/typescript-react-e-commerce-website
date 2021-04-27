@@ -6,7 +6,7 @@ import CartCo from "../../../Pages/Products/Cart";
 import Profile from "../../../Pages/User/Profile";
 import Footer from "./Footer/Footer";
 
-import { AppState } from "../../../Models/AppState";
+import { AppState } from "../../../Models";
 import { Route, Switch } from "react-router-dom";
 import { Dispatch } from "redux";
 

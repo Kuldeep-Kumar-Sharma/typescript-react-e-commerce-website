@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./Gallery.style";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import { AppState } from "../../../Models/AppState";
+import { AppState } from "../../../Models";
 import { Dispatch } from "redux";
 
 import { loadGallerySplashes } from "../../../Store/actions/galleryActionCreators";
@@ -21,16 +21,21 @@ const Gallery: React.FC = () => {
   const [next, setNext] = useState<number>(3);
   const [prev, setPrev] = useState<number>(0);
 
-  const dispatch: Dispatch<any> = useDispatch();
-  dispatch(loadGallerySplashes());
+  // const dispatch: Dispatch<any> = useDispatch();
+  // dispatch(loadGallerySplashes());
 
   const gallerySplashes: GallerySplash[] = useSelector(
     (state: AppState) => state.gyRr.gallerySplashes,
     shallowEqual
   );
-  console.log(gallerySplashes);
-  useCallback(() => {
+  const productCardProps: ProductCardProps[] = useSelector(
+    (state: AppState) => state.gyRr.productCardProps,
+    shallowEqual
+  );
+
+  useEffect(() => {
     setData(gallerySplashes);
+    setProducts(productCardProps);
   }, []);
   const Previous = () => {
     // if (0 < prev) {
