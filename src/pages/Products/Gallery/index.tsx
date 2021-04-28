@@ -1,28 +1,23 @@
 import React from "react";
 import { Carousel, Container, Row, Button } from "react-bootstrap";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Card from "../Card";
 import { ProductCardProps } from "../../../Models/ProductCard";
 import { GallerySplash } from "../../../Models/GallerySplash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./Gallery.style";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import { AppState } from "../../../Models";
-import { Dispatch } from "redux";
-
-import { loadGallerySplashes } from "../../../Store/actions/galleryActionCreators";
 
 const Gallery: React.FC = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState<GallerySplash[]>([]);
-  const [products, setProducts] = useState<ProductCardProps[]>([]);
   const [next, setNext] = useState<number>(3);
   const [prev, setPrev] = useState<number>(0);
 
-  // const dispatch: Dispatch<any> = useDispatch();
-  // dispatch(loadGallerySplashes());
+  const [data, setData] = useState<GallerySplash[]>([]);
+  const [products, setProducts] = useState<ProductCardProps[]>([]);
 
   const gallerySplashes: GallerySplash[] = useSelector(
     (state: AppState) => state.gyRr.gallerySplashes,
