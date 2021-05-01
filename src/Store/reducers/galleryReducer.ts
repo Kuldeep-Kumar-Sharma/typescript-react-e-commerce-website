@@ -17,16 +17,12 @@ export const galleryReducer = (
 ): GalleryState => {
   switch (action.type) {
     case LOAD_SPLASH_IMAGES:
-      console.log("*************************************");
-      console.log(state);
       return {
         ...state,
         gallerySplashes: state.gallerySplashes.concat(action.gallerySplashes),
       };
 
     case LOAD_PRODUCT_CARDS:
-      console.log("*************************************");
-      console.log(state);
       return {
         ...state,
         productCardProps: state.productCardProps.concat(
