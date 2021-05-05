@@ -9,7 +9,7 @@ export function editProfile(user: User):  {
 }
 
 
-export function removeromCart(user: User):  {
+export function editProfile(user: User):  {
   return {
     type: RETRIVE_PROFILE,
     product_id: user,
