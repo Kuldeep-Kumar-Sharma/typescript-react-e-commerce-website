@@ -1,17 +1,20 @@
 import { User } from "../../Models/User";
-import { EDIT_PROFILE, RETRIVE_PROFILE } from "./profileTypes";
+import {
+  EDIT_PROFILE,
+  RETRIVE_PROFILE,
+  ProfileActionTypes,
+} from "./profileTypes";
 
-export function editProfile(user: User):  {
+export function editProfile(user: User): ProfileActionTypes {
   return {
     type: EDIT_PROFILE,
-    product_id: user,
+    user_data: user,
   };
 }
 
-
-export function editProfile(user: User):  {
+export function retriveProfile(user: User): ProfileActionTypes {
   return {
     type: RETRIVE_PROFILE,
-    product_id: user,
+    user_data: user,
   };
 }
