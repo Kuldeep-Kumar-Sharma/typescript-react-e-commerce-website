@@ -1,8 +1,8 @@
 import {
-  LOAD_SPLASH_IMAGES,
-  LOAD_PRODUCT_CARDS,
-  GalleryActionTypes,
-} from "../actions/galleryTypes";
+  EDIT_PROFILE,
+  RETRIVE_PROFILE,
+  ProfileActionTypes,
+} from "../actions/profileTypes";
 import { GalleryState } from "../../Models";
 
 //use normal redux
@@ -13,7 +13,7 @@ const initialState: GalleryState = {
 
 export const galleryReducer = (
   state: GalleryState = initialState,
-  action: GalleryActionTypes
+  action: ProfileActionTypes
 ): GalleryState => {
   switch (action.type) {
     case LOAD_SPLASH_IMAGES:
