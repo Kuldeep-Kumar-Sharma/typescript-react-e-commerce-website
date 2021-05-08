@@ -6,7 +6,6 @@ export interface GalleryState {
   gallerySplashes: Array<GallerySplash>;
   productCardProps: Array<ProductCardProps>;
 }
-
 export interface AppState {
   gyRr: GalleryState;
   ctRr: Cart;
