@@ -16,13 +16,13 @@ export const galleryReducer = (
   action: ProfileActionTypes
 ): GalleryState => {
   switch (action.type) {
-    case LOAD_SPLASH_IMAGES:
+    case EDIT_PROFILE:
       return {
         ...state,
         gallerySplashes: state.gallerySplashes.concat(action.gallerySplashes),
       };
 
-    case LOAD_PRODUCT_CARDS:
+    case RETRIVE_PROFILE:
       return {
         ...state,
         productCardProps: state.productCardProps.concat(
