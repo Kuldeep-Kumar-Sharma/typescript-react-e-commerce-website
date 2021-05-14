@@ -19,14 +19,11 @@ export const galleryReducer = (
     case EDIT_PROFILE:
       return {
         ...state,
-        gallerySplashes: state.gallerySplashes.concat(action.gallerySplashes),
       };
 
     case RETRIVE_PROFILE:
       return {
         ...state,
-        productCardProps: state.productCardProps.concat(
-          action.productCardProps
         ),
       };
     default:
