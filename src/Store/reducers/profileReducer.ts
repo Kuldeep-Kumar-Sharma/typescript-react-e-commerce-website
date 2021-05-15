@@ -3,28 +3,27 @@ import {
   RETRIVE_PROFILE,
   ProfileActionTypes,
 } from "../actions/profileTypes";
-import { GalleryState } from "../../Models";
+import { User } from "../../Models/User";
 
 //use normal redux
-const initialState: GalleryState = {
-  gallerySplashes: [],
-  productCardProps: [],
+const initialState: User = {
+  name: "",
+  phone: "",
 };
 
-export const galleryReducer = (
-  state: GalleryState = initialState,
+export const profileReducer = (
+  state: User = initialState,
   action: ProfileActionTypes
-): GalleryState => {
+): User => {
   switch (action.type) {
     case EDIT_PROFILE:
       return {
         ...state,
+        ...action.user_data,
       };
-
     case RETRIVE_PROFILE:
       return {
         ...state,
-        ),
       };
     default:
       return state;
