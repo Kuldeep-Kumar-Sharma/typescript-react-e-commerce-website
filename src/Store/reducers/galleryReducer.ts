@@ -5,7 +5,6 @@ import {
 } from "../actions/galleryTypes";
 import { GalleryState } from "../../Models";
 
-//use normal redux
 const initialState: GalleryState = {
   gallerySplashes: [],
   productCardProps: [],

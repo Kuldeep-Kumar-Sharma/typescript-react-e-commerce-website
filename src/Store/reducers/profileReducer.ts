@@ -5,7 +5,6 @@ import {
 } from "../actions/profileTypes";
 import { User } from "../../Models/User";
 
-//use normal redux
 const initialState: User = {
   name: "",
   phone: "",
