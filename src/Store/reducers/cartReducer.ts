@@ -5,8 +5,6 @@ import {
 } from "../actions/cartTypes";
 import { Cart } from "../../Models/Cart";
 
-//use normal redux
-
 const initialState: Cart = {
   products: [],
 };
