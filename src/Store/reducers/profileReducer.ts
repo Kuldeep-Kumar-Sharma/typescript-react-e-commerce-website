@@ -23,6 +23,7 @@ export const profileReducer = (
     case RETRIVE_PROFILE:
       return {
         ...state,
+        ...action.user_data,
       };
     default:
       return state;
