@@ -1,7 +1,7 @@
 import React from "react";
 
-const Track: React.FC = () => {
+const History: React.FC = () => {
   return <></>;
 };
 
-export default Track;
+export default History;
