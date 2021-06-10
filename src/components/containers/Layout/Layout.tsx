@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import Gallery from "../../../Pages/Products/Gallery";
 import CartCo from "../../../Pages/Products/Cart";
 import Profile from "../../../Pages/User/Profile";
+import Track from "../../../Pages/Orders/Track";
 import Footer from "./Footer/Footer";
 
 import { AppState } from "../../../Models";
@@ -29,6 +30,7 @@ const Layout: React.FC = () => {
       <Header products={cart} />
       <Switch>
         <Route path="/profile" component={Profile} />
+        <Route path="/Track" component={Track} />
         <Route path="/cart" component={CartCo} />
         <Route path="/" component={Gallery} />
       </Switch>
