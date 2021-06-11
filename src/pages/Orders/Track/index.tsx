@@ -86,19 +86,27 @@ const Track: React.FC = () => {
                 <div className="icon"></div>
               </div>
               <div className="image-order-status image-order-status-active active img-circle">
-                <span className="status">In progress</span>
+                <span className="status">
+                  <FontAwesomeIcon color="brown" icon={faForward} /> In progress
+                </span>
                 <div className="icon"></div>
               </div>
               <div className="image-order-status image-order-status-intransit active img-circle">
-                <span className="status">Shipped</span>
+                <span className="status">
+                  <FontAwesomeIcon color="brown" icon={faForward} /> Shipped
+                </span>
                 <div className="icon"></div>
               </div>
               <div className="image-order-status image-order-status-delivered active img-circle">
-                <span className="status">Delivered</span>
+                <span className="status">
+                  <FontAwesomeIcon color="brown" icon={faForward} /> Delivered
+                </span>
                 <div className="icon"></div>
               </div>
               <div className="image-order-status image-order-status-completed active img-circle">
-                <span className="status">Completed</span>
+                <span className="status">
+                  <FontAwesomeIcon color="brown" icon={faForward} /> Completed
+                </span>
                 <div className="icon"></div>
               </div>
             </div>
