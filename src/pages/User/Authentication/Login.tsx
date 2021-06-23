@@ -4,7 +4,6 @@ import { User } from "../../../Models/User";
 
 const Login: React.FC = () => {
   const user = useState<User>();
-
   return (
     <Form>
       <Form.Group controlId="formBasicEmail">
