@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
-import { User } from "../../../Models/User";
+import { User } from "../../../../Models/User";
 
 const Signup: React.FC = () => {
   const user = useState<User>();

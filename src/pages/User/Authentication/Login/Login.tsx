@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { User } from "../../../Models/User";
+import { User } from "../../../../Models/User";
 
 const Login: React.FC = () => {
   const user = useState<User>();

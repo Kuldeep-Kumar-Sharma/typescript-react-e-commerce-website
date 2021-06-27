@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Jumbotron, Card, Tabs, Tab } from "react-bootstrap";
-import Login from "./Login";
-import Signup from "./Signup";
+import Login from "./Login/Login";
+import Signup from "./Signup/Signup";
 import { Wrapper } from "./Authentication.styles";
 
 const Authentication: React.FC = () => {
