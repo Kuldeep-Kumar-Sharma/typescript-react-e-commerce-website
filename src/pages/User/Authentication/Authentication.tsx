@@ -3,6 +3,7 @@ import { Container, Jumbotron, Card, Tabs, Tab } from "react-bootstrap";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import { Wrapper } from "./Authentication.styles";
+import { User } from "../../../../Models/User";
 
 const Authentication: React.FC = () => {
   return (
